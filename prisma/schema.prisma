@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider     = "mongodb"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Profile {
@@ -23,20 +24,21 @@ model Profile {
 }
 
 model Server {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  userId      String @unique
-  name        String
-  imageUrl    String
-  invitedCode String
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  imageUrl   String
+  inviteCode String @unique
+
+  profileId String @db.ObjectId
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   members  Member[]
   channels Channel[]
 
-  profileId String
-  profile   Profile @relation(fields: [profileId], references: [userId], onDelete: Cascade)
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([profileId])
 }
 
 enum MemberRole {
@@ -49,14 +51,17 @@ model Member {
   id   String     @id @default(auto()) @map("_id") @db.ObjectId
   role MemberRole @default(GUEST)
 
-  profileId String
-  profile   Profile @relation(fields: [profileId], references: [userId], onDelete: Cascade)
+  profileId String @db.ObjectId
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
-  serverId String
-  server   Server @relation(fields: [serverId], references: [userId], onDelete: Cascade)
+  serverId String @db.ObjectId
+  server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+  @@index([serverId])
 }
 
 enum ChannelType {
@@ -70,12 +75,15 @@ model Channel {
   name String
   type ChannelType @default(TEXT)
 
-  profileId String
-  profile   Profile @relation(fields: [profileId], references: [userId], onDelete: Cascade)
+  profileId String @db.ObjectId
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
-  serverId String
-  server   Server @relation(fields: [serverId], references: [userId], onDelete: Cascade)
+  serverId String @db.ObjectId
+  server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+  @@index([serverId])
 }
