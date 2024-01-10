@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import { initialProfile } from "@/lib/initial-profile"
 import { db } from "@/lib/db";
