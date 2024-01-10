@@ -1,3 +1,5 @@
+"use client"
+
 import NavigationSidebar from "@/components/navigation/navigation-sidebar"
 // The children prop represents the content passed to this layout component. In React, the children prop is a special prop that allows you to pass components or elements as children to another component.
 

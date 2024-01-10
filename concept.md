@@ -31,3 +31,7 @@
 - Use Redux if you have a complex state management scenario, need middleware for asynchronous actions, or if you're working on a large-scale application where a global state is beneficial.
 
 Both libraries have their strengths and are widely used in the React ecosystem. The choice between them depends on the specific requirements and preferences of your project.
+
+## Client-Side Data Fetching
+
+The `useClient` directive indicates that the following code is meant for the client side. This is important for data fetching operations that should be performed on the client, especially in the context of client-side rendering (CSR) or static site generation (SSG).
