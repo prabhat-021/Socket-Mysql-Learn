@@ -73,6 +73,32 @@ export default function MembersModal() {
         }
     };
 
+    const onKick = async (memberId: string) => {
+        try {
+            setLoadingId(memberId);
+
+            // Construct the URL for the API endpoint using qs.stringifyUrl
+            const url = qs.stringifyUrl({
+                url: `/api/members/${memberId}`, // API endpoint URL
+                query: {
+                    serverId: server?.id, // Include serverId in the query parameters
+                    // memberId, // Include memberId in the query parameters
+                },
+            });
+
+            const response = await axios.delete(url);
+            router.refresh();
+            onOpen("members", { server: response.data })
+
+        } catch (error) {
+            // Handle any errors that occur during the API request
+            console.log(error);
+
+        } finally {
+            // Reset the loading state regardless of success or failure
+            setLoadingId("");
+        }
+    }
 
     return (
         <Dialog open={isModalOpen} onOpenChange={onClose}>
@@ -137,7 +163,9 @@ export default function MembersModal() {
                                                 </DropdownMenuPortal>
                                             </DropdownMenuSub>
                                             <DropdownMenuSeparator />
-                                            <DropdownMenuItem>
+                                            <DropdownMenuItem
+                                                onClick={() => onKick(member.id)}
+                                            >
                                                 <Gavel className="w-4 h-4 mr-2" />
                                                 Kick
                                             </DropdownMenuItem>
