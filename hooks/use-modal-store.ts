@@ -22,6 +22,6 @@ export const useModal = create<ModalStore>((set) => ({
     type: null,
     data: {},
     isOpen: false,
-    onOpen: (type, data = {}) => set({ isOpen: true, type }), // Open a modal of the specified type
+    onOpen: (type, data = {}) => set({ isOpen: true, type, data }), // Open a modal of the specified type
     onClose: () => set({ type: null, isOpen: false }), // Close the currently open modal
 }));

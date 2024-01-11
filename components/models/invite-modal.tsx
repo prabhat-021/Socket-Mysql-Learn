@@ -14,7 +14,7 @@ import axios from "axios";
 
 export default function InviteModal() {
 
-    const { isOpen, onClose, type, data, onOpen } = useModal();
+    const { onOpen, isOpen, onClose, type, data } = useModal();
     const [copied, setCopied] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -22,6 +22,7 @@ export default function InviteModal() {
     const origin = useOrigin();
 
     const { server } = data;
+    // console.log(server);
     const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
 
     const onCopy = () => {
