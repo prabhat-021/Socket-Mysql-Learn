@@ -34,6 +34,8 @@ export default function EditServerModal() {
 
     const router = useRouter();
     const { server } = data;
+    console.log(server);
+    console.log(data);
 
 
     const form = useForm({
@@ -110,7 +112,7 @@ export default function EditServerModal() {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                                            server Name
+                                            Server Name
                                         </FormLabel>
                                         <FormControl>
                                             <Input

@@ -2,8 +2,9 @@ import currentProfile from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
-export default async function PATCH(
-    req: Request, { params }: { params: { serverId: string } }
+export async function PATCH(
+    req: Request,
+    { params }: { params: { serverId: string } }
 ) {
     try {
         const profile = await currentProfile();
@@ -20,15 +21,15 @@ export default async function PATCH(
             },
             data: {
                 name,
-                imageUrl
+                imageUrl,
             }
-        })
+        });
 
         return NextResponse.json(server);
 
     } catch (error) {
 
-        console.log("SERVER_ID_PATCH", error);
+        console.log("[SERVER_ID_PATCH]", error);
         return new NextResponse("Internal Error", { status: 500 });
     }
 }
