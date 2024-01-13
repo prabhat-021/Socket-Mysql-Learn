@@ -34,8 +34,8 @@ export default function EditServerModal() {
 
     const router = useRouter();
     const { server } = data;
-    console.log(server);
-    console.log(data);
+    // console.log(server);
+    // console.log(data);
 
 
     const form = useForm({
