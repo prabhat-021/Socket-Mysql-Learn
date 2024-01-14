@@ -23,11 +23,7 @@ const SetupPage = async () => {
         return redirect(`/servers/${server.id}`);
     }
 
-    return (
-        <>
-            <InitialModel />
-        </>
-    )
+    return <InitialModel />
 }
 
-export default SetupPage
+export default SetupPage;

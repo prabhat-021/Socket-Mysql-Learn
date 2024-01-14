@@ -1,9 +1,10 @@
 import currentProfile from "@/lib/current-profile"
 import { db } from "@/lib/db";
 import { ChannelType } from "@prisma/client";
-import { channel } from "diagnostics_channel";
 import { redirect } from "next/navigation";
 import ServerHeader from "./server-header";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import ServerSearch from "./server-search";
 
 interface ServerSidebarProps {
     serverId: string
@@ -57,6 +58,11 @@ export default async function ServerSidebar({
                 server={server}
                 role={role}
             />
+            <ScrollArea className="flex-1 px-3">
+                <div className="mt-2">
+                    <ServerSearch />
+                </div>
+            </ScrollArea>
         </div>
     )
 }
