@@ -1,12 +1,13 @@
 // Importing the `create` function from `zustand`
 import { create } from "zustand";
-import { ChannelType, Server } from "@prisma/client";
+import { Channel, ChannelType, Server } from "@prisma/client";
 
 // Define the possible modal types
-export type ModalType = "deleteServer" | "leaveServer" | "createServer" | "invite" | "editServer" | "members" | "createChannels";
+export type ModalType = "deleteChannel" | "deleteServer" | "leaveServer" | "createServer" | "invite" | "editServer" | "members" | "createChannels";
 
 interface ModalData {
     server?: Server;
+    channel?: Channel;
     channelType?: ChannelType;
 }
 // Define the modal store interface
