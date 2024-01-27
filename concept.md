@@ -35,3 +35,7 @@ Both libraries have their strengths and are widely used in the React ecosystem. 
 ## Client-Side Data Fetching
 
 The `useClient` directive indicates that the following code is meant for the client side. This is important for data fetching operations that should be performed on the client, especially in the context of client-side rendering (CSR) or static site generation (SSG).
+
+## Optional Chaining with `textChannels?.length`
+
+The expression `textChannels?.length` checks if the `textChannels` array exists and has a non-zero length. The `?.` is the optional chaining operator, which ensures that the `length` property is only accessed if `textChannels` is not null or undefined. The result of this expression will be a boolean value.
