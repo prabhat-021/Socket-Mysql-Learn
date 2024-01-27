@@ -24,6 +24,7 @@ import {
     SelectValue
 } from "@/components/ui/select";
 import { ChannelType } from "@prisma/client";
+import { useEffect } from "react";
 
 // Define a form schema using Zod for validating form data
 const formSchema = zod.object({
@@ -45,19 +46,28 @@ const formSchema = zod.object({
 
 export default function CreateChannelModal() {
 
-    const { isOpen, onClose, type } = useModal();
+    const { isOpen, onClose, type, data } = useModal();
     const isModalOpen = isOpen && type === "createChannels";
 
     const router = useRouter();
     const params = useParams();
+    const { channelType } = data;
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
-            type: ChannelType.TEXT,
+            type: channelType || ChannelType.TEXT,
         }
-    })
+    });
+
+    useEffect(() => {
+        if (channelType) {
+            form.setValue("type", channelType)
+        } else {
+            form.setValue("type", ChannelType.TEXT);
+        }
+    }, [channelType, form]);
 
     const isLoading = form.formState.isSubmitting;
     const onSubmit = async (values: zod.infer<typeof formSchema>) => {
