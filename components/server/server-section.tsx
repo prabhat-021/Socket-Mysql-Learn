@@ -51,7 +51,6 @@ export default function ServerSection({
                     </button>
                 </ActionTooltip>
             )}
-            this is my server section
         </div>
     )
 }

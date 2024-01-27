@@ -39,3 +39,7 @@ The `useClient` directive indicates that the following code is meant for the cli
 ## Optional Chaining with `textChannels?.length`
 
 The expression `textChannels?.length` checks if the `textChannels` array exists and has a non-zero length. The `?.` is the optional chaining operator, which ensures that the `length` property is only accessed if `textChannels` is not null or undefined. The result of this expression will be a boolean value.
+
+## Utility Function `cn` for Merging and Normalizing Class Names
+
+This code defines a utility function `cn` that merges and normalizes class names using `clsx` and then applies Tailwind CSS class names using `twMerge`. It's commonly used to simplify the process of combining and applying class names in React components.
