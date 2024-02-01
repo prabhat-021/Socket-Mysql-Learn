@@ -43,3 +43,11 @@ The expression `textChannels?.length` checks if the `textChannels` array exists 
 ## Utility Function `cn` for Merging and Normalizing Class Names
 
 This code defines a utility function `cn` that merges and normalizes class names using `clsx` and then applies Tailwind CSS class names using `twMerge`. It's commonly used to simplify the process of combining and applying class names in React components.
+
+## Preventing Event Propagation
+
+Preventing event propagation means stopping the event from propagating or bubbling up through the DOM hierarchy. In the context of web development, when an event occurs on an element, such as a click event on a button, it not only triggers event handlers attached to that specific element but also triggers event handlers attached to its parent elements, and so on, all the way up to the root of the document.
+
+By default, when an event occurs on an element, it triggers event handlers on that element first, then on its parent elements, and so forth. This is known as event propagation or event bubbling.
+
+However, in some cases, you may want to prevent this default behavior. For example, if you have a button inside a clickable container, clicking the button would also trigger the click event handler on the container. If you want to prevent this behavior and only execute the event handler attached to the button, you can call `stopPropagation()` on the event object inside the button's event handler. This stops the event from propagating further up the DOM tree, effectively preventing any parent event handlers from being triggered.
