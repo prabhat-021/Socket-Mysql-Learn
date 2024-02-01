@@ -33,7 +33,7 @@ export default function ServerChannel({
 
     const onClick = () => {
 
-        router.push(`/server/${params?.serverId}/channels/${channel.id}`)
+        router.push(`/servers/${params?.serverId}/channels/${channel.id}`)
     }
 
     // Define a function named onAction that takes a React.MouseEvent and a ModalType as parameters

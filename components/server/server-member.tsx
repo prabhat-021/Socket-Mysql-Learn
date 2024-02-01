@@ -2,7 +2,7 @@
 
 import { Member, MemberRole, Profile, Server } from "@prisma/client";
 import { ShieldAlert, ShieldCheck } from "lucide-react";
-import { useParams, useRouter  } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { UserAvatar } from "@/components/user-avatar";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +29,7 @@ export default function ServerMember({
     const icon = roleIconMap[member.role];
 
     const onClick = () => {
-
+        router.push(`/servers/${params?.serverId}/conversations/${member.id}`)
     }
 
     return (
