@@ -103,10 +103,10 @@ model Message {
   fileUrl String?
 
   memberId String? @db.ObjectId
-  member   Member? @relation(fields: [memberId], references: [id])
+  member   Member? @relation(fields: [memberId], references: [id], onDelete: Cascade)
 
   channelId String?  @db.ObjectId
-  channel   Channel? @relation(fields: [channelId], references: [id])
+  channel   Channel? @relation(fields: [channelId], references: [id], onDelete: Cascade)
 
   deleted Boolean @default(false)
 
@@ -140,10 +140,10 @@ model DirectMessage {
   fileUrl String?
 
   memberId String? @db.ObjectId
-  member   Member? @relation(fields: [memberId], references: [id])
+  member   Member? @relation(fields: [memberId], references: [id], onDelete: Cascade)
 
   conversationId String?       @db.ObjectId
-  conversation   Conversation? @relation(fields: [conversationId], references: [id])
+  conversation   Conversation? @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 
   deleted Boolean @default(false)
 
