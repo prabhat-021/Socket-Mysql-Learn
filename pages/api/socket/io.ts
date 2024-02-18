@@ -20,7 +20,7 @@ export default function ioHandler(req: NextApiRequest, res: NextApiResponseServe
             path: path, // Specify the WebSocket server path
             addTrailingSlash: false // Disable adding trailing slashes to the WebSocket server path
         });
-
-        res.end(); // End the HTTP response (WebSocket server is now initialized)
+        res.socket.server.io = io;
     }
+    res.end(); // End the HTTP response (WebSocket server is now initialized)
 }
