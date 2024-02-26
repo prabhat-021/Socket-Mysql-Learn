@@ -20,12 +20,13 @@ To run the project using Docker, use the following command:
 
 ```bash
 docker pull prabhatsehrawat/wechat:01
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-# Environment Variables
+## Environment Variables
 
 Before running the project, ensure you have the following environment variables set up:
 
