@@ -14,9 +14,40 @@ pnpm dev
 bun dev
 ```
 
+## Docker Command
+
+To run the project using Docker, use the following command:
+
+```bash
+docker pull prabhatsehrawat/wechat:01
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+# Environment Variables
+
+Before running the project, ensure you have the following environment variables set up:
+
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`: Your Clerk Publishable Key.
+- `CLERK_SECRET_KEY`: Your Clerk Secret Key.
+- `NEXT_PUBLIC_CLERK_SIGN_IN_URL`: Sign-in URL for Clerk.
+- `NEXT_PUBLIC_CLERK_SIGN_UP_URL`: Sign-up URL for Clerk.
+- `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL`: URL to redirect after signing in with Clerk.
+- `NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL`: URL to redirect after signing up with Clerk.
+- `DATABASE_URL`: MongoDB database URL.
+- `UPLOADTHING_SECRET`: Secret key for Uploadthing.
+- `UPLOADTHING_APP_ID`: App ID for Uploadthing.
+- `LIVEKIT_API_KEY`: API Key for Livekit.
+- `LIVEKIT_API_SECRET`: API Secret for Livekit.
+- `NEXT_PUBLIC_LIVEKIT_URL`: URL for Livekit.
+
+Ensure these variables are properly configured before running the project.
+
+## Note for Project Cloner
+
+When cloning this project, ensure to set up the necessary environment variables as mentioned above to successfully run the code.
+
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
